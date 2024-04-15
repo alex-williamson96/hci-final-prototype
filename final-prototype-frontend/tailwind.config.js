@@ -8,6 +8,9 @@ export default {
         '1/6-screen': '16.666666%', // Represents 1/6ths of the viewport height
       },
     },
+    colors: {
+      'very-light-orange': '#FFF4EF',
+    },
   },
   plugins: [],
 };
