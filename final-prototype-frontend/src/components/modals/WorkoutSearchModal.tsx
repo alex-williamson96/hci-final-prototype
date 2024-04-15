@@ -8,6 +8,7 @@ interface WorkoutSearchModalProps {
 }
 
 const style = {
+  // eslint-disable-next-line @typescript-eslint/prefer-as-const
   position: 'absolute' as 'absolute',
   top: '60%',
   left: '50%',
