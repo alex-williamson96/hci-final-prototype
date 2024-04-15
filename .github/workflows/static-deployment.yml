@@ -35,6 +35,8 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
+      - name: Cd into front end
+        run: cd final-prototype-frontend
       - name: Install dependencies
         run: npm ci
       - name: Build
