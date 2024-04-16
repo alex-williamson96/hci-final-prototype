@@ -10,6 +10,7 @@ export default {
     },
     colors: {
       'very-light-orange': '#FFF4EF',
+      'gray': '#F5F5F5'
     },
   },
   plugins: [],

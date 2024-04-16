@@ -1,8 +1,8 @@
 import AddIcon from '@mui/icons-material/Add';
 import { IconButton } from '@mui/material';
-import WorkoutSearchModal from '../modals/WorkoutSearchModal';
 import { useState } from 'react';
 import { useLocation } from 'wouter';
+import SearchModal from '../modals/SearchModal';
 
 interface CardProps {
   cardText: string;
@@ -18,7 +18,10 @@ const Card = ({ cardText, isNewWorkout }: CardProps) => {
 
   const handleClick = () => {
     if (isNewWorkout) {
-      console.log('here: ', location);
+      if (location !== '/') {
+        return;
+      }
+
       setLocation('/build');
       return;
     }
@@ -37,7 +40,7 @@ const Card = ({ cardText, isNewWorkout }: CardProps) => {
         </IconButton>
         <span className='text-center flex-1 rounded pr-10'>{cardText}</span>
       </div>
-      <WorkoutSearchModal
+      <SearchModal
         open={isModalOpen}
         handleClose={handleModalClose}
         label='modal-modal-title'
