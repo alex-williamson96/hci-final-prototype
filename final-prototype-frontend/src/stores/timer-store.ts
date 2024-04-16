@@ -9,17 +9,19 @@ interface TimerState {
 }
 
 const useTimerStore = create<TimerState>()((set) => ({
-  isPaused: false,
-  pauseTimer: () => set(() => ({
-    isPaused: true
-  })),
-  startTimer: () => set(() => ({
-    isPaused: false
-  })),
+  isPaused: true,
+  pauseTimer: () =>
+    set(() => ({
+      isPaused: true,
+    })),
+  startTimer: () =>
+    set(() => ({
+      isPaused: false,
+    })),
   time: 0,
   inc: () =>
     set((state) => ({
-      time: state.time + 1
+      time: state.time + 1,
     })),
 }));
 
