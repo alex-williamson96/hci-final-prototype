@@ -5,7 +5,11 @@ import { createTheme, ThemeOptions } from '@mui/material';
 import Container from './components/layout/Container';
 import Timer from './components/timer/Timer';
 import TimerButtonsContainer from './components/buttons/TimerButtonsContainer';
-import Card from './components/card/Card';
+import MainPage from './routes/MainPage';
+import { Route, Switch } from 'wouter';
+import WorkoutBuilderPage from './routes/WorkoutBuilderPage';
+import WorkoutSummaryPage from './routes/WorkoutSummary';
+import WorkoutOverviewPage from './routes/WorkoutOverviewPage';
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const themeOptions: ThemeOptions = {
@@ -34,8 +38,25 @@ function App() {
       <Container isExtended={true}>
         <TopInfoBar />
         <Timer />
-        <Card cardText='Select a Workout' isNewWorkout={false}/>
-        <Card cardText='New Workout' isNewWorkout={true}/>
+        <Switch>
+          <Route
+            path='/'
+            component={MainPage}
+          />
+          <Route
+            path='/build'
+            component={WorkoutBuilderPage}
+          />
+          <Route
+            path='/summary'
+            component={WorkoutSummaryPage}
+          />
+          <Route
+            path='/workout'
+            component={WorkoutOverviewPage}
+          />
+          <Route>Error, please reload prototype.</Route>
+        </Switch>
       </Container>
       <Container isExtended={false}>
         <TimerButtonsContainer />
