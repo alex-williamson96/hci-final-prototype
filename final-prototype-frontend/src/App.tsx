@@ -7,7 +7,6 @@ import Timer from './components/timer/Timer';
 import TimerButtonsContainer from './components/buttons/TimerButtonsContainer';
 import MainPage from './routes/MainPage';
 import { Route, Switch } from 'wouter';
-import WorkoutBuilderPage from './routes/WorkoutBuilderPage';
 import WorkoutSummaryPage from './routes/WorkoutSummary';
 import WorkoutOverviewPage from './routes/WorkoutOverviewPage';
 
@@ -42,10 +41,6 @@ function App() {
           <Route
             path='/'
             component={MainPage}
-          />
-          <Route
-            path='/build'
-            component={WorkoutBuilderPage}
           />
           <Route
             path='/summary'

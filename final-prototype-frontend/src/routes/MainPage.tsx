@@ -9,11 +9,16 @@ const MainPage = () => {
       <CardWrapper>
         <CardWithModal
           isWithIcon={true}
-          backgroundColor='very-light-orange'
-          cardText='Select a Workout'/>
+          backgroundColor='#FFF4EF'
+          cardText='Select a Workout'
+        />
       </CardWrapper>
       <CardWrapper>
-        <CardWithIcon cardText='New Workout' backgroundColor='very-light-orange' handleClick={() => navigate('/build')}/>
+        <CardWithIcon
+          cardText='New Workout'
+          backgroundColor='#FFF4EF'
+          handleClick={() => navigate('/build')}
+        />
       </CardWrapper>
     </>
   );

@@ -6,11 +6,17 @@ interface CardWithIconProps {
   backgroundColor: string;
 }
 
-const CardWithIcon = ({ cardText, handleClick, backgroundColor }: CardWithIconProps) => {
+const CardWithIcon = ({
+  cardText,
+  handleClick,
+  backgroundColor,
+}: CardWithIconProps) => {
+
   return (
     <div
-        className={`flex items-center justify-between bg-${backgroundColor} rounded text-2xl p-3 cursor-pointer`}
-        onClick={handleClick}>
+      className='flex items-center justify-between rounded text-2xl p-3 cursor-pointer'
+      style={{backgroundColor: backgroundColor}}
+      onClick={handleClick}>
       <IconButton
         color='secondary'
         size='large'>
