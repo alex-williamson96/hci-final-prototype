@@ -1,5 +1,4 @@
 import { navigate } from 'wouter/use-browser-location';
-import Card from '../components/card/Card';
 import CardWithIcon from '../components/card/CardWithIcon';
 import CardWithModal from '../components/card/CardWithModal';
 import CardWrapper from '../components/card/CardWrapper';

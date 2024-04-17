@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useLocation } from 'wouter';
 import SearchModal from '../modals/SearchModal';
 import CardWithIcon from './CardWithIcon';
 import Card from './Card';
