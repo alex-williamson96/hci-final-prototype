@@ -1,20 +1,20 @@
+import { navigate } from 'wouter/use-browser-location';
 import Card from '../components/card/Card';
+import CardWithIcon from '../components/card/CardWithIcon';
+import CardWithModal from '../components/card/CardWithModal';
 import CardWrapper from '../components/card/CardWrapper';
 
 const MainPage = () => {
   return (
     <>
       <CardWrapper>
-        <Card
-          cardText='Select a Workout'
-          isNewWorkout={false}
-        />
+        <CardWithModal
+          isWithIcon={true}
+          backgroundColor='very-light-orange'
+          cardText='Select a Workout'/>
       </CardWrapper>
       <CardWrapper>
-        <Card
-          cardText='New Workout'
-          isNewWorkout={true}
-        />
+        <CardWithIcon cardText='New Workout' backgroundColor='very-light-orange' handleClick={() => navigate('/build')}/>
       </CardWrapper>
     </>
   );
