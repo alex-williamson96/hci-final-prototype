@@ -29,7 +29,7 @@ const Card = ({ cardText, isNewWorkout }: CardProps) => {
   };
 
   return (
-    <div className='p-2'>
+    <>
       <div
         className='flex items-center justify-between bg-very-light-orange rounded text-2xl p-1 cursor-pointer'
         onClick={handleClick}>
@@ -46,7 +46,7 @@ const Card = ({ cardText, isNewWorkout }: CardProps) => {
         label='modal-modal-title'
         description='modal-model-description'
       />
-    </div>
+    </>
   );
 };
 

@@ -1,4 +1,6 @@
+import { Link } from 'wouter';
 import { Workout } from './SearchList';
+import CardWrapper from '../card/CardWrapper';
 
 interface SearchCardProps {
   workout: Workout;
@@ -6,11 +8,13 @@ interface SearchCardProps {
 
 const SearchCard = ({ workout }: SearchCardProps) => {
   return (
-    <div className='p-1'>
-      <div className='flex justify-center text-xl bg-gray rounded p-2'>
-        <span className='p-2'>{workout.name}</span>
-      </div>
-    </div>
+    <CardWrapper customSpacing='1'>
+      <Link to={`workout/${workout.id}`}>
+        <div className='flex justify-center text-xl bg-gray rounded p-2'>
+          <span className='p-2'>{workout.name}</span>
+        </div>
+      </Link>
+    </CardWrapper>
   );
 };
 

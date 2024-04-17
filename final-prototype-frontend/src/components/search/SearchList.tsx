@@ -5,7 +5,25 @@ interface SearchListProps {
 }
 
 export interface Workout {
+  id: number;
   name: string;
+  isFavorite: boolean;
+  exerciseList: Exercise[];
+}
+
+export interface Exercise {
+  id: number;
+  name: string;
+  setList: WorkoutSet[];
+}
+
+export interface WorkoutSet {
+  id: number;
+  setNumber: number;
+  weight: number;
+  reps: number;
+  target: number;
+  rpe: number
 }
 
 const SearchList = ({ workoutList }: SearchListProps) => {

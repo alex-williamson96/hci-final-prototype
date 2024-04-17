@@ -55,6 +55,10 @@ function App() {
             path='/workout'
             component={WorkoutOverviewPage}
           />
+          <Route
+            path='/workout/:id'
+            component={WorkoutOverviewPage}
+          />
           <Route>Error, please reload prototype.</Route>
         </Switch>
       </Container>

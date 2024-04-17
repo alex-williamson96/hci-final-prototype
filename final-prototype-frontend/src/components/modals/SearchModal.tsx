@@ -2,6 +2,7 @@ import { Box, Modal } from '@mui/material';
 import SearchBar from '../search/SearchBar';
 import SearchList from '../search/SearchList';
 import { useState } from 'react';
+import workouts from './workouts.json';
 interface WorkoutSearchModalProps {
   open: boolean;
   handleClose: () => void;
@@ -28,25 +29,13 @@ const SearchModal = ({
   label: label,
   description: description,
 }: WorkoutSearchModalProps) => {
-  const workoutList = [
-    { name: 'Upper Body', isFavorite: true },
-    { name: 'Max Effort Bench', isFavorite: true },
-    { name: 'Max Effort Squat', isFavorite: true },
-    { name: 'Core Workout', isFavorite: true },
-    { name: 'Leg Day', isFavorite: false },
-    { name: 'Smolov Squats', isFavorite: false },
-    { name: 'Tabata', isFavorite: false },
-    { name: 'Push Day', isFavorite: false },
-    { name: 'Full Body', isFavorite: false },
-    { name: 'Dumbell Only', isFavorite: false },
-  ];
   const [searchString, setSearchString] = useState('');
 
   const handleInput = (input: string) => {
     setSearchString(input);
   };
 
-  const searchWorkoutList = workoutList.filter((workout) =>
+  const searchWorkoutList = workouts.filter((workout) =>
     workout.name.toLowerCase().includes(searchString.toLowerCase())
   );
 
