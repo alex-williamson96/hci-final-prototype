@@ -17,7 +17,7 @@ const MainPage = () => {
         <CardWithIcon
           cardText='New Workout'
           backgroundColor='#FFF4EF'
-          handleClick={() => navigate('/build')}
+          handleClick={() => navigate('/workout')}
         />
       </CardWrapper>
     </>
