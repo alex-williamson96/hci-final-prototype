@@ -21,6 +21,16 @@ const WorkoutOverviewPage = () => {
     }
   }, [params]);
 
+  console.log(params.id);
+
+  if (params.id === undefined) {
+    return (
+      <div className='p-4'>
+        <AddExerciseButton />
+      </div>
+    )
+  }
+
   if (workout === undefined || workout === null) {
     return 'Error retreiving workout';
   }
