@@ -21,7 +21,7 @@ const ExcerciseContainer = ({ exercise }: ExcerciseContainerProps) => {
       <TopRow />
       {exercise.setList.map((set) => {
         return (
-          <div key={set.id}>
+          <div key={set.id} className='p-1.5'>
             <InputRow set={set} />
           </div>
         );

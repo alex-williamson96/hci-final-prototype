@@ -2,7 +2,7 @@ import { Box, Modal } from '@mui/material';
 import SearchBar from '../search/SearchBar';
 import SearchList from '../search/SearchList';
 import { useState } from 'react';
-import workouts from './workouts.json';
+import workouts from '../../../../data/workouts.json';
 interface WorkoutSearchModalProps {
   open: boolean;
   handleClose: () => void;

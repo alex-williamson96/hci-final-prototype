@@ -1,9 +1,11 @@
 import { useParams } from 'wouter';
-import workouts from '../components/modals/workouts.json';
+import workouts from '../../../data/workouts.json';
 import { useEffect, useState } from 'react';
 import { Workout } from '../components/search/SearchList';
 import WorkoutBuilderContainer from '../components/workout-builder/WorkoutBuidlerContainer';
 import ExcerciseContainer from '../components/workout-builder/ExcerciseContainer';
+import AddSetButton from '../components/buttons/AddSetButton';
+import AddExerciseButton from '../components/buttons/AddExerciseButton';
 
 const WorkoutOverviewPage = () => {
   const [workout, setWorkout] = useState<Workout>();
@@ -15,8 +17,6 @@ const WorkoutOverviewPage = () => {
         (_workout) => _workout.id.toString() === params.id
       );
 
-      console.log(w);
-      console.log('params: ', params.id);
       setWorkout(w as Workout);
     }
   }, [params]);
@@ -31,12 +31,16 @@ const WorkoutOverviewPage = () => {
       <WorkoutBuilderContainer>
         {workout.exerciseList.map((exercise) => {
           return (
-            <ExcerciseContainer
-              key={exercise.id}
-              exercise={exercise}
-            />
+            <div className='pb-3'>
+              <ExcerciseContainer
+                key={exercise.id}
+                exercise={exercise}
+              />
+              <AddSetButton />
+            </div>
           );
         })}
+        <AddExerciseButton />
       </WorkoutBuilderContainer>
     </>
   );
