@@ -40,7 +40,7 @@ const InputRow = ({ set }: InputRowProps) => {
         <input
           className='w-14 rounded p-1 text-center'
           value={rowSetInfo.weight}
-          name='reps'
+          name='weight'
           inputMode='numeric'
           pattern='[0-9]*'
           type='number'
@@ -53,7 +53,7 @@ const InputRow = ({ set }: InputRowProps) => {
         <input
           className='w-14 rounded p-1 text-center'
           value={rowSetInfo.reps}
-          name='target'
+          name='reps'
           inputMode='numeric'
           pattern='[0-9]*'
           type='number'
@@ -66,7 +66,7 @@ const InputRow = ({ set }: InputRowProps) => {
         <input
           className='w-14 rounded p-1 text-center'
           value={rowSetInfo.target}
-          name='weight'
+          name='target'
           inputMode='numeric'
           pattern='[0-9]*'
           type='number'
