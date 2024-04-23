@@ -1,19 +1,15 @@
+import { SearchItem } from '../modals/SearchModal';
 import SearchCard from './SearchCard';
 
 interface SearchListProps {
-  workoutList: Workout[];
+  workoutList: SearchItem[];
 }
 
-export interface Workout {
-  id: number;
-  name: string;
-  isFavorite: boolean;
+export interface Workout extends SearchItem {
   exerciseList: Exercise[];
 }
 
-export interface Exercise {
-  id: number;
-  name: string;
+export interface Exercise extends SearchItem {
   setList: WorkoutSet[];
 }
 
@@ -23,23 +19,27 @@ export interface WorkoutSet {
   weight: number;
   reps: number;
   target: number;
-  rpe: number
+  rpe: number;
 }
 
 const SearchList = ({ workoutList }: SearchListProps) => {
-  const Items = (workoutList: Workout[]) => {
+  const Items = (workoutList: SearchItem[]) => {
     return workoutList.map((workout) => {
       return (
         <SearchCard
           key={workout.name}
-          workout={workout}
+          searchItem={workout}
+          isRedirect={true}
+          
         />
       );
     });
   };
 
   return (
-    <div className='flex justify-center flex-col overflow-auto'>{Items(workoutList)}</div>
+    <div className='flex justify-center flex-col overflow-auto'>
+      {Items(workoutList)}
+    </div>
   );
 };
 

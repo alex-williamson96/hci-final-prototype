@@ -2,12 +2,18 @@ import { Box, Modal } from '@mui/material';
 import SearchBar from '../search/SearchBar';
 import SearchList from '../search/SearchList';
 import { useState } from 'react';
-import workouts from '../../../../data/workouts.json';
 interface WorkoutSearchModalProps {
   open: boolean;
   handleClose: () => void;
   label: string;
   description: string;
+  searchList: SearchItem[];
+}
+
+export interface SearchItem {
+  id: number;
+  name: string;
+  isFavorite: boolean;
 }
 
 const style = {
@@ -28,6 +34,7 @@ const SearchModal = ({
   handleClose,
   label: label,
   description: description,
+  searchList: searchList,
 }: WorkoutSearchModalProps) => {
   const [searchString, setSearchString] = useState('');
 
@@ -35,7 +42,7 @@ const SearchModal = ({
     setSearchString(input);
   };
 
-  const searchWorkoutList = workouts.filter((workout) =>
+  const filteredSearchList = searchList.filter((workout) =>
     workout.name.toLowerCase().includes(searchString.toLowerCase())
   );
 
@@ -47,7 +54,7 @@ const SearchModal = ({
       aria-describedby={description}>
       <Box sx={style}>
         <SearchBar handleInput={handleInput} />
-        <SearchList workoutList={searchWorkoutList} />
+        <SearchList workoutList={filteredSearchList} />
       </Box>
     </Modal>
   );

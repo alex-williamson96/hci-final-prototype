@@ -1,7 +1,11 @@
 import { IconButton } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 
-const AddSetButton = () => {
+interface AddSetButtonProps {
+  handleAddSet: () => void;
+}
+
+const AddSetButton = ({ handleAddSet }: AddSetButtonProps) => {
   return (
     <div className='flex flex-row-reverse pr-4 pt-2'>
       <div
@@ -9,7 +13,7 @@ const AddSetButton = () => {
         style={{
           backgroundColor: '#FFF4EF',
         }}
-        onClick={() => null}>
+        onClick={handleAddSet}>
         <IconButton
           color='secondary'
           size='small'>
