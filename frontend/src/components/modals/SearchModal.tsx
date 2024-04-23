@@ -8,6 +8,8 @@ interface WorkoutSearchModalProps {
   label: string;
   description: string;
   searchList: SearchItem[];
+  isRedirect: boolean;
+  handleClick: (e: SearchItem) => void;
 }
 
 export interface SearchItem {
@@ -32,14 +34,21 @@ const style = {
 const SearchModal = ({
   open,
   handleClose,
-  label: label,
-  description: description,
-  searchList: searchList,
+  label,
+  description,
+  searchList,
+  isRedirect,
+  handleClick,
 }: WorkoutSearchModalProps) => {
   const [searchString, setSearchString] = useState('');
 
   const handleInput = (input: string) => {
     setSearchString(input);
+  };
+
+  const handleRedirectClick = (e: SearchItem) => {
+    handleClick(e);
+    handleClose();
   };
 
   const filteredSearchList = searchList.filter((workout) =>
@@ -54,7 +63,11 @@ const SearchModal = ({
       aria-describedby={description}>
       <Box sx={style}>
         <SearchBar handleInput={handleInput} />
-        <SearchList workoutList={filteredSearchList} />
+        <SearchList
+          isRedirect={isRedirect}
+          handleClick={handleRedirectClick}
+          searchList={filteredSearchList}
+        />
       </Box>
     </Modal>
   );

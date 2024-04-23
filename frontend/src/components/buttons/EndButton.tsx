@@ -1,8 +1,15 @@
 import { Fab } from '@mui/material';
 import useTimerStore from '../../stores/timer-store';
+import { navigate } from 'wouter/use-browser-location';
 
 const EndButton = () => {
-  const { startTimer, time } = useTimerStore();
+  const { startTimer, time, resetTimer, pauseTimer } = useTimerStore();
+
+  const handleEnd = () => {
+    navigate('/');
+    resetTimer();
+    pauseTimer();
+  };
   return (
     <span>
       <Fab
@@ -16,7 +23,8 @@ const EndButton = () => {
       <Fab
         color='primary'
         variant='extended'
-        aria-label='end'>
+        aria-label='end'
+        onClick={handleEnd}>
         {time === 0 ? 'Cancel' : 'End'}
       </Fab>
     </span>

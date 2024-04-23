@@ -5,7 +5,7 @@ import { SearchItem } from '../modals/SearchModal';
 interface SearchCardProps {
   searchItem: SearchItem;
   isRedirect: boolean;
-  handleClick?: () => void;
+  handleClick?: (e: SearchItem) => void;
 }
 
 const SearchCard = ({
@@ -13,12 +13,20 @@ const SearchCard = ({
   isRedirect,
   handleClick,
 }: SearchCardProps) => {
-  if (isRedirect) {
+  const redirectClick = () => {
+    if (searchItem === undefined || handleClick === undefined) {
+      return;
+    }
+    console.log('SearchCard');
+    handleClick(searchItem);
+  };
+
+  if (!isRedirect) {
     return (
       <CardWrapper customSpacing='1'>
         <div
           className='flex justify-center text-xl bg-extend-colors-gray rounded p-2 shadow-md cursor-pointer'
-          onClick={handleClick}>
+          onClick={redirectClick}>
           <span className='p-2'>{searchItem.name}</span>
         </div>
       </CardWrapper>

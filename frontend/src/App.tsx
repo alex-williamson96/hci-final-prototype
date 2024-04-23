@@ -9,6 +9,7 @@ import MainPage from './routes/MainPage';
 import { Route, Switch } from 'wouter';
 import WorkoutSummaryPage from './routes/WorkoutSummary';
 import WorkoutOverviewPage from './routes/WorkoutOverviewPage';
+import RPE from './routes/RPE';
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const themeOptions: ThemeOptions = {
@@ -53,6 +54,10 @@ function App() {
           <Route
             path='/workout/:id'
             component={WorkoutOverviewPage}
+          />
+          <Route
+            path='/rpe'
+            component={RPE}
           />
           <Route>Error, please reload prototype.</Route>
         </Switch>

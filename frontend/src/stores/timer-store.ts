@@ -6,6 +6,7 @@ interface TimerState {
   startTimer: () => void;
   time: number;
   inc: () => void;
+  resetTimer: () => void;
 }
 
 const useTimerStore = create<TimerState>()((set) => ({
@@ -22,6 +23,10 @@ const useTimerStore = create<TimerState>()((set) => ({
   inc: () =>
     set((state) => ({
       time: state.time + 1,
+    })),
+  resetTimer: () =>
+    set(() => ({
+      time: 0,
     })),
 }));
 

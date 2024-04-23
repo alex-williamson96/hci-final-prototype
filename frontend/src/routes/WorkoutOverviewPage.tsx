@@ -6,6 +6,7 @@ import ExcerciseContainer from '../components/workout-builder/ExcerciseContainer
 import AddSetButton from '../components/buttons/AddSetButton';
 import AddExerciseButton from '../components/buttons/AddExerciseButton';
 import workouts from '../assets/workouts.json';
+import { SearchItem } from '../components/modals/SearchModal';
 
 const WorkoutOverviewPage = () => {
   const [workout, setWorkout] = useState<Workout>({
@@ -26,38 +27,46 @@ const WorkoutOverviewPage = () => {
     }
   }, [params]);
 
-  console.log(params.id);
+  if (workout === undefined) {
+    setWorkout({
+      name: '',
+      id: Date.now(),
+      isFavorite: false,
+      exerciseList: [],
+    });
+  }
 
-  const handleAddExercise = (exercise: Exercise) => {
+  const handleAddExercise = (_exercise: SearchItem) => {
+    const exercise = { ..._exercise };
+
     if (exercise === null || exercise === undefined) {
       return;
     }
-
-    if (exercise.id === null) {
-      exercise.id = Date.now();
-    }
-
     let exerciseList = workout?.exerciseList;
 
     if (exerciseList === null || exerciseList === undefined) {
       exerciseList = [];
     }
 
-    exerciseList.push(exercise);
+    exercise.id = Date.now() + exerciseList.length;
+
+    exerciseList.push(exercise as Exercise);
 
     setWorkout((prev) => ({ ...prev, exerciseList: exerciseList }));
   };
 
-  if (params.id === undefined) {
-    return (
-      <div className='p-4'>
-        <AddExerciseButton handleAddExercise={(e) => handleAddExercise(e)} />
-      </div>
-    );
-  }
+  console.log(workout);
 
   if (workout === undefined || workout === null) {
-    return 'Error retreiving workout';
+    return <div>'Error retreiving workout'</div>;
+  }
+
+  if (workout.exerciseList.length === 0) {
+    return (
+      <div className='p-4'>
+        <AddExerciseButton handleAddExercise={handleAddExercise} />
+      </div>
+    );
   }
 
   const handleAddSet = (exerciseId: number) => {

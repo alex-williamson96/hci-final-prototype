@@ -2,7 +2,9 @@ import { SearchItem } from '../modals/SearchModal';
 import SearchCard from './SearchCard';
 
 interface SearchListProps {
-  workoutList: SearchItem[];
+  searchList: SearchItem[];
+  handleClick?: (e: SearchItem) => void;
+  isRedirect: boolean;
 }
 
 export interface Workout extends SearchItem {
@@ -22,15 +24,15 @@ export interface WorkoutSet {
   rpe: number;
 }
 
-const SearchList = ({ workoutList }: SearchListProps) => {
-  const Items = (workoutList: SearchItem[]) => {
-    return workoutList.map((workout) => {
+const SearchList = ({ searchList, handleClick, isRedirect }: SearchListProps) => {
+  const Items = (searchList: SearchItem[]) => {
+    return searchList.map((workout) => {
       return (
         <SearchCard
           key={workout.name}
           searchItem={workout}
-          isRedirect={true}
-          
+          isRedirect={isRedirect}
+          handleClick={handleClick}
         />
       );
     });
@@ -38,7 +40,7 @@ const SearchList = ({ workoutList }: SearchListProps) => {
 
   return (
     <div className='flex justify-center flex-col overflow-auto'>
-      {Items(workoutList)}
+      {Items(searchList)}
     </div>
   );
 };
