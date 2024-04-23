@@ -1,6 +1,7 @@
 import RPE from '../../routes/RPE';
 import { Box, Button, Modal } from '@mui/material';
 import { useState } from 'react';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
 const TopRow = () => {
   const [open, setOpen] = useState(false);
@@ -48,6 +49,9 @@ const TopRow = () => {
         style={{ flex: '1 1 22.5%' }}
         onClick={handleOpen}>
         RPE
+        <sup className='text-xs'>
+          <HelpOutlineIcon fontSize='inherit' />
+        </sup>
       </span>
 
       <Modal

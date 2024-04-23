@@ -29,7 +29,7 @@ const WorkoutOverviewPage = () => {
 
   if (workout === undefined) {
     setWorkout({
-      name: '',
+      name: 'Custom Workout',
       id: Date.now(),
       isFavorite: false,
       exerciseList: [],
@@ -103,7 +103,11 @@ const WorkoutOverviewPage = () => {
 
   return (
     <>
-      <div>{params.id !== null ? workout.name : 'Custom Workout'}</div>
+      <div className='flex content-center justify-center p-2 text-2xl'>
+        <span className=' border rounded w-max p-1'>
+          {params.id !== null ? workout.name : 'Custom Workout'}
+        </span>
+      </div>
       <WorkoutBuilderContainer>
         {workout.exerciseList.map((exercise) => {
           return (
